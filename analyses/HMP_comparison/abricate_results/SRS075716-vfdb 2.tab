@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS075716-genecalls.fa	3314	1	531	+	gmhA/lpcA	1-531/585	==============.	0/0	90.77	83.62	vfdb	NP_439337	(gmhA/lpcA) phosphoheptose isomerase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	

@@ -1,0 +1,5 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS1055043-genecalls.fa	133807	80	196	+	astA	1-117/117	===============	0/0	100.00	95.73	vfdb	BAA94855	(astA) heat-stable enterotoxin 1 [EAST1 (VF0216)] [Escherichia coli O44:H18 042]	
+/home/ptrinh88/hmp_data/genecalls/SRS1055043-genecalls.fa	141829	1	1257	+	iucD	1-1257/1338	===============	0/0	93.95	96.90	vfdb	NP_755499	(iucD) L-lysine 6-monooxygenase IucD [Aerobactin (VF0229)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS1055043-genecalls.fa	157433	1	1091	+	iroB	73-1163/1164	===============	0/0	93.73	98.26	vfdb	NP_753168	(iroB) glucosyltransferase IroB [Salmochelin (IA013)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS1055043-genecalls.fa	176362	28	445	+	csgB	1-418/456	========/=====.	2/2	91.45	83.77	vfdb	NP_460114	(csgB) minor curlin subunit precursor curli nucleator protein CsgB [Agf (VF0103)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]	

@@ -1,0 +1,18 @@
+contigs_db	SRS050752-contigs-fixed
+Total Length	180695128
+Num Contigs	126683
+Num Contigs > 100 kb	4
+Num Contigs > 50 kb	88
+Num Contigs > 20 kb	989
+Num Contigs > 10 kb	2808
+Num Contigs > 5 kb	6203
+Num Contigs > 2.5 kb	12594
+Longest Contig	116648
+Shortest Contig	200
+Num Genes (prodigal)	258571
+L50	8487
+L75	35318
+L90	78235
+N50	3662
+N75	922
+N90	461

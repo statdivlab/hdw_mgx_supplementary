@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS020328-genecalls.fa	145503	6	465	+	papF	36-495/531	.=============.	0/0	86.63	99.35	vfdb	NP_755459	(papF) P pilus minor subunit PapF  [P fimbriae (VF0220)] [Escherichia coli CFT073]	

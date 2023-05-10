@@ -1,0 +1,8 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	102114	1	315	+	papB	1-315/315	===============	0/0	100.00	99.68	vfdb		(papB) regulatory protein PapB [P fimbriae (VF0220)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	118995	1	453	+	fimF	82-534/534	..=============	0/0	84.83	97.35	vfdb	NP_757245	(fimF) FimF protein precursor [Type 1 fimbriae (VF0221)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	204019	1	555	+	kpsT	1-555/660	=============..	0/0	84.09	100.00	vfdb	AAA24047	(kpsT) KpsT [K1 capsule (VF0239)] [Escherichia coli O18:K1:H7 str. RS218]	
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	234558	38	1176	+	senB	2-1140/1140	===============	0/0	99.91	99.65	vfdb	YP_406304	(senB) enterotoxin [ShET2 (VF0258)] [Shigella flexneri 2a str. 301]	
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	44334	94	699	+	papD	1-606/606	===============	0/0	100.00	99.17	vfdb	NP_755464	(papD) chaperone protein PapD [P fimbriae (VF0220)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	60762	1	495	+	chuX	1-495/495	===============	0/0	100.00	99.80	vfdb	NP_756177	(chuX) putative heme-binding protein ChuX [Chu (VF0227)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS050752-genecalls.fa	78060	1	588	+	papH	1-588/588	===============	0/0	100.00	96.94	vfdb	NP_755466	(papH) P pilus termination subunit PapH [P fimbriae (VF0220)] [Escherichia coli CFT073]	

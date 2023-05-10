@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS021153-genecalls.fa	40410	1	327	+	gspI	46-372/372	.==============	0/0	87.90	92.66	vfdb	YP_404605	(gspI) general secretion pathway protein I [T2SS (VF0333)] [Shigella dysenteriae Sd197]	
+/home/ptrinh88/hmp_data/genecalls/SRS021153-genecalls.fa	50973	2	834	+	shuT	161-993/993	..=============	0/0	83.89	97.96	vfdb	YP_405017	(shuT) periplasmic binding protein ShuT [Shu (VF0256)] [Shigella dysenteriae Sd197]	
+/home/ptrinh88/hmp_data/genecalls/SRS021153-genecalls.fa	73448	1	555	+	fimA	58-606/606	.=======/======	1/6	90.59	87.57	vfdb	NP_757241	(fimA) Type-1 fimbrial protein A chain precursor [Type 1 fimbriae (VF0221)] [Escherichia coli CFT073]	

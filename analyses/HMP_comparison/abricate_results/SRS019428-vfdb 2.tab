@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS019428-genecalls.fa	105621	1	969	+	galE	49-1017/1017	===============	0/0	95.28	81.63	vfdb	NP_438515	(galE) UDP-glucose 4-epimerase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	
+/home/ptrinh88/hmp_data/genecalls/SRS019428-genecalls.fa	36309	1	585	+	gmhA/lpcA	1-585/585	===============	0/0	100.00	83.76	vfdb	NP_439337	(gmhA/lpcA) phosphoheptose isomerase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	
+/home/ptrinh88/hmp_data/genecalls/SRS019428-genecalls.fa	93235	1	919	+	rfaD	1-919/927	========/======	2/6	98.81	83.19	vfdb	NP_439271	(rfaD) ADP-L-glycero-D-mannoheptose-6-epimerase [LOS (VF0044)] [Haemophilus influenzae Rd KW20]	

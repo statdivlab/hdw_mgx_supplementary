@@ -1,0 +1,3 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS013687-genecalls.fa	35650	1	651	+	csgD	1-651/651	===============	0/0	100.00	81.41	vfdb	NP_460113	(csgD) DNA-binding transcriptional regulator CsgD [curli fibers/thin aggregative fimbriae (AGF) (AI094)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]	
+/home/ptrinh88/hmp_data/genecalls/SRS013687-genecalls.fa	84302	1	483	+	fimB	1-483/603	=============..	0/0	80.10	97.72	vfdb	NP_757239	(fimB) Type 1 fimbriae Regulatory protein fimB [Type 1 fimbriae (VF0221)] [Escherichia coli CFT073]	

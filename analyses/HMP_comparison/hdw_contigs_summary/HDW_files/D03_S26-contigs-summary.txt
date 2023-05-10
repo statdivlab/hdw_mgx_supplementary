@@ -1,0 +1,25 @@
+contigs_db	D03_S26
+Total Length	156422326
+Num Contigs	38523
+Num Contigs > 100 kb	71
+Num Contigs > 50 kb	243
+Num Contigs > 20 kb	1055
+Num Contigs > 10 kb	2615
+Num Contigs > 5 kb	6020
+Num Contigs > 2.5 kb	13332
+Longest Contig	512717
+Shortest Contig	1000
+Num Genes (prodigal)	166791
+L50	3595
+L75	12921
+L90	25374
+N50	7749
+N75	2569
+N90	1437
+Archaea_76	1846
+Bacteria_71	3580
+Protista_83	186
+Ribosomal_RNAs	62
+archaea (Archaea_76)	0
+eukarya (Protista_83)	0
+bacteria (Bacteria_71)	49

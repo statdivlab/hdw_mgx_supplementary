@@ -1,0 +1,5 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS1041038-genecalls.fa	106997	716	832	+	astA	1-117/117	===============	0/0	100.00	100.00	vfdb	BAA94855	(astA) heat-stable enterotoxin 1 [EAST1 (VF0216)] [Escherichia coli O44:H18 042]	
+/home/ptrinh88/hmp_data/genecalls/SRS1041038-genecalls.fa	131386	1	282	+	aap/aspU	70-351/351	..=============	0/0	80.34	93.97	vfdb	YP_006099176	(aap/aspU) Dispersin [Dispersin (VF0215)] [Escherichia coli O44:H18 042]	
+/home/ptrinh88/hmp_data/genecalls/SRS1041038-genecalls.fa	13529	7	597	+	ykgK/ecpR	1-591/591	===============	0/0	100.00	97.63	vfdb	NP_286011	(ykgK/ecpR) regulator protein EcpR [ECP (VF0404)] [Escherichia coli O157:H7 str. EDL933]	
+/home/ptrinh88/hmp_data/genecalls/SRS1041038-genecalls.fa	145082	1	418	+	csgB	1-418/456	========/=====.	2/2	91.45	83.77	vfdb	NP_460114	(csgB) minor curlin subunit precursor curli nucleator protein CsgB [Agf (VF0103)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]	

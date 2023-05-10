@@ -1,0 +1,6 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS098061-genecalls.fa	126224	1	1017	+	galE	1-1017/1017	===============	0/0	100.00	81.51	vfdb	NP_438515	(galE) UDP-glucose 4-epimerase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	
+/home/ptrinh88/hmp_data/genecalls/SRS098061-genecalls.fa	136578	1	1659	+	yhxB/manB	1-1653/1653	========/======	3/8	99.94	82.83	vfdb	NP_438900	(yhxB/manB) phosphomannomutase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	
+/home/ptrinh88/hmp_data/genecalls/SRS098061-genecalls.fa	14192	1	919	+	rfaD	1-919/927	===============	0/0	99.14	83.57	vfdb	NP_439271	(rfaD) ADP-L-glycero-D-mannoheptose-6-epimerase [LOS (VF0044)] [Haemophilus influenzae Rd KW20]	
+/home/ptrinh88/hmp_data/genecalls/SRS098061-genecalls.fa	59538	1	789	+	lpxA	1-789/789	===============	0/0	100.00	82.76	vfdb	NP_439219	(lpxA) UDP-N-acetylglucosamine acyltransferase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	
+/home/ptrinh88/hmp_data/genecalls/SRS098061-genecalls.fa	79142	1	918	+	lpxC	1-918/918	===============	0/0	100.00	83.11	vfdb	NP_439302	(lpxC) UDP-3-O-(R-3-hydroxymyristoyl)-N-acetylglucosamine deacetylase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	

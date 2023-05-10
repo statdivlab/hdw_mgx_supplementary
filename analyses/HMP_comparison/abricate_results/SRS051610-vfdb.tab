@@ -1,0 +1,7 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS051610-genecalls.fa	100838	1	1548	+	msrA/B(pilB	22-1569/1569	===============	0/0	98.66	89.86	vfdb	NP_273110	(msrA/B(pilB)) trifunctional thioredoxin/methionine sulfoxide reductase A/B protein [MsrAB (VF0456)] [Neisseria meningitidis MC58]	
+/home/ptrinh88/hmp_data/genecalls/SRS051610-genecalls.fa	121628	1	825	+	mntC	82-915/915	.=======/======	2/9	90.16	81.42	vfdb	NP_273630	(mntC) periplasmic binding protein MntC [MntABC (VF0455)] [Neisseria meningitidis MC58]	
+/home/ptrinh88/hmp_data/genecalls/SRS051610-genecalls.fa	33745	1	1143	+	lipB	64-1206/1260	===============	0/0	90.71	94.05	vfdb	NP_273146	(lipB) capsule polysaccharide modification protein LipB [Capsule (VF0079)] [Neisseria meningitidis MC58]	
+/home/ptrinh88/hmp_data/genecalls/SRS051610-genecalls.fa	38905	1	1515	+	katA	1-1515/1515	===============	0/0	100.00	92.94	vfdb	NP_273273	(katA) catalase [KatA (VF0454)] [Neisseria meningitidis MC58]	
+/home/ptrinh88/hmp_data/genecalls/SRS051610-genecalls.fa	80947	11	1638	+	recN	11-1638/1674	===============	0/0	97.25	80.65	vfdb	NP_273782	(recN) DNA repair protein RecN [RecN (VF0457)] [Neisseria meningitidis MC58]	
+/home/ptrinh88/hmp_data/genecalls/SRS051610-genecalls.fa	81033	1	1030	+	pilT	1-1030/1044	===============	0/0	98.66	82.52	vfdb	NP_273117	(pilT) twitching motility protein PilT [Type IV pili (VF0075)] [Neisseria meningitidis MC58]	

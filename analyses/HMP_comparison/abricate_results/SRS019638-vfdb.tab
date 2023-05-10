@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS019638-genecalls.fa	160125	1	630	+	entD	142-771/771	..=============	0/0	81.71	93.33	vfdb	NP_752599	(entD) phosphopantetheinyl transferase component of enterobactin synthase multienzyme complex [Enterobactin (VF0228)] [Escherichia coli CFT073]	

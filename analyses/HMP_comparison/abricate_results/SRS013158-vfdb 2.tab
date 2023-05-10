@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS013158-genecalls.fa	15753	1	450	+	papF	85-531/531	..======/======	1/3	84.18	94.22	vfdb	NP_755459	(papF) P pilus minor subunit PapF  [P fimbriae (VF0220)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS013158-genecalls.fa	56387	19	333	+	papB	1-315/315	===============	0/0	100.00	99.36	vfdb		(papB) regulatory protein PapB [P fimbriae (VF0220)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS013158-genecalls.fa	72861	1	258	+	sfaC	28-285/285	.==============	0/0	90.53	100.00	vfdb	YP_540122	(sfaC) S fimbrial switch regulatory protein SfaC [S fimbriae (VF0222)] [Escherichia coli UTI89]	

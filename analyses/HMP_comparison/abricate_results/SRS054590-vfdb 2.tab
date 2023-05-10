@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS054590-genecalls.fa	22738	1	638	+	lpxA	1-638/789	=============..	0/0	80.86	83.70	vfdb	NP_439219	(lpxA) UDP-N-acetylglucosamine acyltransferase [LOS (CVF494)] [Haemophilus influenzae Rd KW20]	

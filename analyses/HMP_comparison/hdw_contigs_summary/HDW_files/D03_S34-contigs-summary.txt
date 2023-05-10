@@ -1,0 +1,25 @@
+contigs_db	D03_S34
+Total Length	172364456
+Num Contigs	46991
+Num Contigs > 100 kb	67
+Num Contigs > 50 kb	266
+Num Contigs > 20 kb	1130
+Num Contigs > 10 kb	2737
+Num Contigs > 5 kb	6132
+Num Contigs > 2.5 kb	14150
+Longest Contig	345452
+Shortest Contig	1000
+Num Genes (prodigal)	188202
+L50	4441
+L75	16743
+L90	32028
+N50	6614
+N75	2196
+N90	1342
+Archaea_76	2184
+Bacteria_71	4213
+Protista_83	236
+Ribosomal_RNAs	73
+archaea (Archaea_76)	1
+eukarya (Protista_83)	0
+bacteria (Bacteria_71)	62

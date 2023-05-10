@@ -1,0 +1,3 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS018427-genecalls.fa	98286	1	699	+	lpfB	1-699/699	===============	0/0	100.00	90.99	vfdb	NP_462540	(lpfB) long polar fimbrial chaperone protein LpfB [Lpf (VF0105)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]	
+/home/ptrinh88/hmp_data/genecalls/SRS018427-genecalls.fa	98287	1	525	+	lpfA	13-537/537	===============	0/0	97.77	90.29	vfdb	NP_462541	(lpfA) long polar fimbria protein LpfA [Lpf (VF0105)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]	

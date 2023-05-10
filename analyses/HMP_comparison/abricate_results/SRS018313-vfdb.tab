@@ -1,0 +1,7 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS018313-genecalls.fa	121450	1	450	+	papX	52-501/552	.=============.	0/0	81.52	98.44	vfdb	NP_755457	(papX) PapX protein regulates flagellum synthesis to repress motility [P fimbriae (CVF425)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS018313-genecalls.fa	22661	1	831	+	tcpC	1-831/924	==============.	0/0	89.94	100.00	vfdb	NP_754290	(tcpC) Tir domain containing protein TcpC [TcpC (VF0413)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS018313-genecalls.fa	45269	1	603	+	fimB	1-603/603	===============	0/0	100.00	100.00	vfdb	NP_757239	(fimB) Type 1 fimbriae Regulatory protein fimB [Type 1 fimbriae (VF0221)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS018313-genecalls.fa	52933	1	663	+	entD	109-771/771	..=============	0/0	85.99	100.00	vfdb	NP_752599	(entD) phosphopantetheinyl transferase component of enterobactin synthase multienzyme complex [Enterobactin (VF0228)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS018313-genecalls.fa	68757	1	654	+	fimC	73-726/726	.==============	0/0	90.08	100.00	vfdb	NP_757243	(fimC) Chaperone protein fimC precursor [Type 1 fimbriae (VF0221)] [Escherichia coli CFT073]	
+/home/ptrinh88/hmp_data/genecalls/SRS018313-genecalls.fa	76052	1	407	+	gspM	16-422/423	===============	0/0	96.22	96.07	vfdb	YP_404609	(gspM) general secretion pathway protein M [T2SS (VF0333)] [Shigella dysenteriae Sd197]	

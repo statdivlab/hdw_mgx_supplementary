@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS016495-genecalls.fa	82885	1	726	+	fimC	1-726/726	===============	0/0	100.00	97.93	vfdb	NP_757243	(fimC) Chaperone protein fimC precursor [Type 1 fimbriae (VF0221)] [Escherichia coli CFT073]	

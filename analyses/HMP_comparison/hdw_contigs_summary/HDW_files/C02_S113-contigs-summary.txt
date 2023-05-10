@@ -1,0 +1,25 @@
+contigs_db	C02_S113
+Total Length	195797629
+Num Contigs	56362
+Num Contigs > 100 kb	40
+Num Contigs > 50 kb	204
+Num Contigs > 20 kb	1129
+Num Contigs > 10 kb	3070
+Num Contigs > 5 kb	7595
+Num Contigs > 2.5 kb	17784
+Longest Contig	509312
+Shortest Contig	1000
+Num Genes (prodigal)	214739
+L50	6645
+L75	21696
+L90	39303
+N50	5561
+N75	2138
+N90	1332
+Archaea_76	2332
+Bacteria_71	4571
+Protista_83	239
+Ribosomal_RNAs	77
+eukarya (Protista_83)	0
+bacteria (Bacteria_71)	64
+archaea (Archaea_76)	0

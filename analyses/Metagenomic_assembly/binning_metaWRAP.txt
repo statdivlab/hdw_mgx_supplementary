@@ -1,0 +1,21 @@
+/home/ptrinh88/BMTAGGER_INDEX
+
+/home/ptrinh88/NCBI_nt
+/home/ptrinh88/NCBI_tax
+MY_KRAKEN2_DB
+
+for sample in `cat /home/ptrinh88/HDW-MGX/HDW-MGX/names-mod.txt`; do metawrap binning -o $sample-INITIAL_BINNING -t 48 -a /home/ptrinh88/HDW-MGX/HDW-MGX/FASTA/$sample/$sample-contigs-prefix-formatted-only.fa --metabat2 --maxbin2 --concoct QC/$sample-QUALITY_PASSED_*fastq; done
+
+for sample in `cat /home/ptrinh88/HDW-MGX/HDW-MGX/names-mod.txt`; do metawrap bin_refinement -o $sample-BIN_REFINEMENT -t 54 -A $sample-INITIAL_BINNING/metabat2_bins/ -B $sample-INITIAL_BINNING/maxbin2_bins/ -C $sample-INITIAL_BINNING/concoct_bins/; done
+
+Metawrap binning -o INITIAL_BINNING_
+
+
+#!/bin/bash
+#
+#$ -cwd
+#$ -q student.q
+#$ -pe smp 54
+#$ -S /bin/bash
+
+for sample in `cat /home/ptrinh88/HDW-MGX/HDW-MGX/names-mod.txt`; do motus profile -f /home/ptrinh88/HDW/$sample-QUALITY_PASSED_R1.fastq.gz -r /home/ptrinh88/HDW/$sample-QUALITY_PASSED_R2.fastq.gz -t 32 > $sample-motus.txt; done

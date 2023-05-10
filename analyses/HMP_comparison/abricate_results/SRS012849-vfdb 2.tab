@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+/home/ptrinh88/hmp_data/genecalls/SRS012849-genecalls.fa	202779	1	830	+	csgG	1-830/834	========/======	2/2	99.40	80.14	vfdb	NP_460110	(csgG) curli production assembly/transport protein CsgG [Agf (VF0103)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]	

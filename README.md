@@ -1,1 +1,1 @@
-# hdw_mgx_supplementary
+# Code and data files needed to reproduce the results in the Healthy Dairy Worker Shotgun Metagenomics manuscript.

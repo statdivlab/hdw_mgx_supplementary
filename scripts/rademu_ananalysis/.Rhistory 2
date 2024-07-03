@@ -1,0 +1,512 @@
+get_datas <- file %>% strsplit("_") %>% extract2(1)  %>% strsplit(".rds")
+res_so_far$cat <- parse_number((file %>% strsplit("/") %>% extract2(1)  %>% strsplit(".rds"))[[2]][1])
+results[[counter]] <- res_so_far
+counter <- counter + 1
+}
+results <- do.call(rbind, results) %>% as_tibble %>%
+arrange(cat) %>%
+mutate(covariate = "dairydairy",
+category_num = cat) %>%
+select(-cat)
+hdw_results <- left_join(hdw_coefs, results)
+# check on CI's for 7 cases in which score test didn't converge due to a computationally
+# singular matrix
+hdw_results %>% filter(covariate == "dairydairy") %>%
+filter(is.na(score))
+# hmp results
+hmp_ests <- readRDS("hmp_fit.RDS")
+hmp_coefs <- hmp_ests$coef[, 1:7]
+# read in score test results
+files <- list.files("results_bigger", full.names = T)
+results <- vector(length(files), mode = "list")
+counter <- 1
+for (file in files) {
+res_so_far <- readRDS(file)
+get_datas <- file %>% strsplit("_") %>% extract2(1)  %>% strsplit(".rds")
+res_so_far$cat <- parse_number((file %>% strsplit("/") %>% extract2(1)  %>% strsplit(".rds"))[[2]][1])
+results[[counter]] <- res_so_far
+counter <- counter + 1
+}
+score_results <- do.call(rbind, results) %>% as_tibble %>%
+mutate(category_num = cat) %>%
+select(-cat, -contains("pval")) %>%
+pivot_longer(cols = 2:3, names_to = "covariate", values_to = "score") %>%
+tidyr::separate(covariate, into = c("remove", "covariate")) %>%
+select(-remove) %>%
+mutate(covariate = paste0("group", covariate))
+pval_results <- do.call(rbind, results) %>% as_tibble %>%
+mutate(category_num = cat) %>%
+select(-cat, -contains("score")) %>%
+pivot_longer(cols = 2:3, names_to = "covariate", values_to = "pval") %>%
+tidyr::separate(covariate, into = c("remove", "covariate")) %>%
+select(-remove, -time) %>%
+mutate(covariate = paste0("group", covariate))
+hmp_results <- left_join(hmp_coefs, score_results, by = c("category_num", "covariate")) %>%
+left_join(pval_results, by = c("category_num", "covariate"))
+# combine results from hdw and hmp studies
+combined_results <- hdw_results %>%
+mutate(covariate = ifelse(covariate == "dairydairy", "groupdairy", "age")) %>%
+full_join(hmp_results, by = c("covariate", "category"))
+ggplot(combined_results, aes(x = estimate.x, y = estimate.y)) +
+geom_point()
+ggplot(combined_results, aes(x = pval.x, y = pval.y)) +
+geom_point()
+radEmu:::pseudohuber_center(hdw_coefs$estimate[1:272], .1)
+radEmu:::pseudohuber_center(hmp_coefs$estimate[1:272], .1)
+which(hmp_coefs$category %in% hdw_ceofs$c)
+which(hmp_coefs$category %in% hdw_ceofs$cat)
+which(hmp_coefs$category %in% hdw_ceofs$category)
+which(hmp_coefs$category %in% hdw_coefs$category)
+dim(!is.na(hmp_results))
+dim(!is.na(hmp_results$score))
+length(!is.na(hmp_results$score))
+hmp_results$score
+sum(!is.na(hmp_results$score))
+head(results)
+head(score_results)
+dim(score_results)
+hist(score_results %>% filter(covariate == "grouphmp") %>% pull(score))
+hist(score_results %>% filter(covariate == "groupdairy") %>% pull(score))
+summary(score_results %>% filter(covariate == "groupdairy") %>% pull(score))
+summary(score_results %>% filter(covariate == "grouphmp") %>% pull(score))
+summary(hdw_results$score)
+head(results)
+head(do.call(rbind, results) %>% as.tibble)
+tmp <- do.call(rbind, results) %>% as.tibble
+plot(tmp$pval_dairy, tmp$pval_hmp)
+cor(tmp$pval_dairy, tmp$pval_hmp)
+cor(combined_results$pval.x, combined_results$pval.y, use = "complete.case")
+?cor
+cor(combined_results$pval.x, combined_results$pval.y, use = "complete.obs")
+saveRDS("hmp_results.csv")
+saveRDS(hmp_results, "hmp_results.rds")
+save(hdw_results, "hdw_results.rds")
+save(hdw_results, file = "hdw_results.rds")
+save(combined_results, file = "combined_results.rds")
+length(results)
+hmp_otus_rademu
+library(tidyverse)
+hmp_otus_rademu <- readRDS("hmp_dairy_rademu_otus.RDS")
+hmp_meta_rademu <- readRDS("hmp_dairy_radEmu_meta.RDS")
+head(hmp_meta_rademu$group)
+table(hmp_meta_rademu$group)
+otus_community <- hmp_otus_rademu[which(hmp_meta_rademu$group == "community"), ]
+otus_dairy <- hmp_otus_rademu[which(hmp_meta_rademu$group == "dairy"), ]
+otus_hmp <- hmp_otus_rademu[which(hmp_meta_rademu$group == "HMP"), ]
+sum(colSums(otus_community) == 0)
+sum(colSums(otus_dairy) == 0)
+sum(colSums(otus_hmp) == 0)
+head(hdw_coefs)
+head(hmp_coefs)
+head(hdw_coefs$estimate - hdw_coefs$estimate[1])
+head(hmp_coefs$estimate - hmp_coefs$estimate[1])
+hdw_otus_rademu <- readRDS("hdw_rademu_data.RDS")
+hdw_meta_rademu <- readRDS("hdw_metadata_rademu.RDS") %>%
+remove_rownames %>%
+column_to_rownames(var="hdw_id")
+# run larger dataset with constraint only over hdw taxa
+hmp_in_hdw <- which(colnames(hmp_otus_rademu) %in% colnames(hdw_otus_rademu))
+colnames(hmp_otus_rademu)
+colnames(hdw_otus_rademu)
+# run larger dataset with constraint only over hdw taxa
+# replace category names
+hdw_wide_counts <- readRDS("hdw_wide_counts_metaphlan3.RDS")
+hdw_wide_counts[is.na(hdw_wide_counts)] <- 0
+hdw_format_species <- read_csv("hdw_format_species.csv")
+hdw_new_counts <- hdw_wide_counts %>%
+pivot_longer(cols =`C02-S104`: `D03-S37`,
+names_to = "sample", values_to = "abundance_counts") %>%
+mutate(group = ifelse(sample %in% c("C02-S104","C02-S106","C02-S111","C02-S112","C02-S113","C02-S115"),"community","dairy")) %>%
+separate(clade_name, c("Leftover","Species"), sep = "s__", extra = "merge") %>%
+select(-Leftover) %>%
+full_join(hdw_format_species, by = "Species") %>%
+select(-Species, -group) %>%
+pivot_wider(names_from = species, values_from = abundance_counts)
+rownames(hdw_new_counts) <- hdw_new_counts$sample
+hdw_new_counts <- hdw_new_counts %>% select(-sample)
+colnames(hdw_new_counts)
+hmp_in_hdw <- which(colnames(hmp_otus_rademu) %in% colnames(hdw_new_counts))
+hmp_in_hdw
+constraint_grad_fn_hmp <- (function(x) {
+grad <- rep(0, length(x))
+grad[1:272] <- radEmu:::dpseudohuber_center_dx(x[1:272], d = 0.1)
+return(grad)
+})
+# set constraint over first 272 taxa
+constraint_fn_hmp <- (function(x) {
+radEmu:::pseudohuber_center(x[1:272], d = 0.1) })
+constraint_grad_fn_hmp <- (function(x) {
+grad <- rep(0, length(x))
+grad[1:272] <- radEmu:::dpseudohuber_center_dx(x[1:272], d = 0.1)
+return(grad)
+})
+est_start <- proc.time()
+hmp_fit_hdw_constraint <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu,
+run_score_tests = FALSE,
+constraint_fn = constraint_fn_hmp,
+constraint_grad_fn = constraint_grad_hmp,
+constraint_param = NA)
+est_start <- proc.time()
+hmp_fit_hdw_constraint <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu,
+run_score_tests = FALSE,
+constraint_fn = constraint_fn_hmp,
+constraint_grad_fn = constraint_grad_hmp,
+constraint_param = NA,
+verbose = TRUE)
+est_start <- proc.time()
+hdw_fit <- radEmu::emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+Y = hdw_otus_rademu,
+run_score_tests = FALSE)
+hdw_fit <- radEmu::emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+Y = hdw_otus_rademu,
+run_score_tests = FALSE,
+verbose = TRUE)
+est_start <- proc.time()
+hdw_fit_longer <- radEmu::emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+Y = hdw_otus_rademu,
+run_score_tests = FALSE,
+maxit = 5000,
+verbose = TRUE)
+est_end <- proc.time() - est_start
+trace(radEmu:::emuFit_micro_penalized, edit = TRUE)
+est_start <- proc.time()
+hdw_fit_longer <- radEmu::emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+Y = hdw_otus_rademu,
+run_score_tests = FALSE,
+maxit = 5000,
+verbose = TRUE)
+est_end <- proc.time() - est_start
+est_start <- proc.time()
+hmp_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu,
+run_score_tests = FALSE, verbose = TRUE, compute_cis = FALSE)
+est_end <- proc.time() - est_start
+est_start <- proc.time()
+hmp_sm_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu[, 1:272],
+run_score_tests = FALSE)
+est_start <- proc.time()
+hmp_sm_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu[, 1:272],
+run_score_tests = FALSE,verbose=TRUE,compute_cis=FALSE)
+est_end <- proc.time() - est_start
+saveRDS(hmp_fit, "hmp_fit.RDS")
+plot(hmp_fit$coef$estimate[1:272], hdw_fit$coef$estimate)
+plot(hmp_fit$coef$estimate[1:272], hdw_fit$coef$estimate[1:272])
+cor(hmp_fit$coef$estimate[1:272], hdw_fit$coef$estimate[1:272])
+hmp_fit$coef[1:5,]
+hdw_fit$coef[1:5,]
+plot(hmp_sm_fit$coef$estimate[1:272], hdw_fit$coef$estimate)
+plot(hmp_sm_fit$coef$estimate[1:272], hdw_fit$coef$estimate[1:272])
+est_end
+hmp_fit$coef[1:5,]
+hmp_sm_fit$coef[1:5,]
+plot(hmp_sm_fit$coef$estimate[1:272], hmp_fit$coef$estimate[1:272])
+cor(hmp_sm_fit$coef$estimate[1:272], hdw_fit$coef$estimate[1:272])
+summary(hmp_sm_fit$coef$estimate)
+summary(hdw_coefs$estimate)
+summary(hdw_fit$coef$estimate)
+summary(hdw_fit$coef$estimate[1:272])
+summary(hmp_sm_fit$coef$estimate[1:272])
+est_start <- proc.time()
+hmp_sm_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu[, 1:272],
+test_kj = data.frame(k = 2:3, j = 2),verbose=TRUE,compute_cis=FALSE)
+est_end <- proc.time() - est_start
+saveRDS(hmp_fit, "hmp_fit.RDS")
+est_end
+3785/60
+cor(hmp_fit$coef$estimate[1:272], hmp_sm_fit$coef$estimate[1:272])
+head(hdw_meta_rademu)
+dim(hdw_meta_rademu)
+dim(hdw_otus_rademu)
+est_start <- proc.time()
+hdw_fit <- radEmu::emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+Y = hdw_otus_rademu,
+run_score_tests = FALSE,
+verbose = TRUE)
+est_end <- proc.time() - est_start
+saveRDS(hdw_fit, "hdw_fit.RDS")
+est_end
+199/60
+hdw_results <- readRDS("hdw_results.rds")
+hdw_ests <- readRDS("hdw_fit.RDS")
+hdw_coefs <- hdw_ests$coef[, 1:7]
+# replace category names
+hdw_wide_counts <- readRDS("hdw_wide_counts_metaphlan3.RDS")
+hdw_wide_counts[is.na(hdw_wide_counts)] <- 0
+hdw_format_species <- read_csv("hdw_format_species.csv")
+hdw_new_counts <- hdw_wide_counts %>%
+pivot_longer(cols =`C02-S104`: `D03-S37`,
+names_to = "sample", values_to = "abundance_counts") %>%
+mutate(group = ifelse(sample %in% c("C02-S104","C02-S106","C02-S111","C02-S112","C02-S113","C02-S115"),"community","dairy")) %>%
+separate(clade_name, c("Leftover","Species"), sep = "s__", extra = "merge") %>%
+select(-Leftover) %>%
+full_join(hdw_format_species, by = "Species") %>%
+select(-Species, -group) %>%
+pivot_wider(names_from = species, values_from = abundance_counts)
+rownames(hdw_new_counts) <- hdw_new_counts$sample
+hdw_new_counts <- hdw_new_counts %>% select(-sample)
+hdw_coefs$category <- rep(colnames(hdw_new_counts), 2)
+# read in score test results
+files <- list.files("results", full.names = T)
+results <- vector(length(files), mode = "list")
+counter <- 1
+for (file in files) {
+res_so_far <- readRDS(file)
+get_datas <- file %>% strsplit("_") %>% extract2(1)  %>% strsplit(".rds")
+res_so_far$cat <- parse_number((file %>% strsplit("/") %>% extract2(1)  %>% strsplit(".rds"))[[2]][1])
+results[[counter]] <- res_so_far
+counter <- counter + 1
+}
+results <- do.call(rbind, results) %>% as_tibble %>%
+arrange(cat) %>%
+mutate(covariate = "dairydairy",
+category_num = cat) %>%
+select(-cat)
+hdw_results <- left_join(hdw_coefs, results)
+saveRDS(hdw_results, file = "hdw_results.rds")
+hdw_results <- readRDS("hdw_results.rds")
+summary(hdw_results$estimate)
+summary(hdw_results$pval)
+summary(hdw_results$estimate[1:272])
+summary(hdw_results$pval[1:272])
+hdw_results %>% filter(covariate == "dairydairy") %>%
+filter(is.na(score))
+# look at timing to run score tests
+summary(hdw_results$time)
+1078/60
+190078/60
+190078/60/60
+190078/3600
+library(tidyverse)
+hdw_results %>% filter(covariate == "dairydairy") %>%
+filter(is.na(score))
+redo_ind <- c(33, 45, 46, 96, 107, 108, 109, 116, 136, 148, 149, 152, 155, 156, 158,
+160, 162, 165, 170, 174, 179, 181, 190, 191, 215, 226, 233)
+length(redo_ind)
+# for first run of analysis of hdw data
+files <- list.files("results", full.names = T)
+results <- vector(length(files), mode = "list")
+counter <- 1
+for (file in files) {
+res_so_far <- readRDS(file)
+get_datas <- file %>% strsplit("_") %>% extract2(1)  %>% strsplit(".rds")
+res_so_far$cat <- parse_number((file %>% strsplit("/") %>% extract2(1)  %>% strsplit(".rds"))[[2]][1])
+results[[counter]] <- res_so_far
+counter <- counter + 1
+}
+results <- do.call(rbind, results) %>% as_tibble %>%
+arrange(cat)
+failed_test <- which(!(1:272 %in% results$cat))
+failed_test
+# attempt one of the 7 tests that failed after additional time on the cluster
+# read in data
+hdw_otus_rademu <- readRDS("hdw_rademu_data.RDS")
+hdw_meta_rademu <- readRDS("hdw_metadata_rademu.RDS") %>%
+remove_rownames %>%
+column_to_rownames(var="hdw_id")
+# read in estimation fit
+hdw_fit <- readRDS("hdw_fit.RDS")
+covariate_to_test <- which("dairydairy" == hdw_fit$B %>% rownames)
+score_start <- proc.time()
+robust_score <- emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+fitted_model = hdw_fit,
+refit = FALSE,
+test_kj = data.frame(k = covariate_to_test,
+j = 148),
+Y = as.matrix(hdw_otus_rademu),
+rho_init = 1,
+tau = 5,
+constraint_tol = 1e-3,
+verbose = TRUE)
+# hmp results
+hmp_ests <- readRDS("hmp_fit.RDS")
+hmp_coefs <- hmp_ests$coef[, 1:7]
+# read in score test results
+files <- list.files("results_bigger", full.names = T)
+results <- vector(length(files), mode = "list")
+counter <- 1
+for (file in files) {
+res_so_far <- readRDS(file)
+get_datas <- file %>% strsplit("_") %>% extract2(1)  %>% strsplit(".rds")
+res_so_far$cat <- parse_number((file %>% strsplit("/") %>% extract2(1)  %>% strsplit(".rds"))[[2]][1])
+results[[counter]] <- res_so_far
+counter <- counter + 1
+}
+score_results <- do.call(rbind, results) %>% as_tibble %>%
+mutate(category_num = cat) %>%
+select(-cat, -contains("pval")) %>%
+pivot_longer(cols = 2:3, names_to = "covariate", values_to = "score") %>%
+tidyr::separate(covariate, into = c("remove", "covariate")) %>%
+select(-remove) %>%
+mutate(covariate = paste0("group", covariate))
+pval_results <- do.call(rbind, results) %>% as_tibble %>%
+mutate(category_num = cat) %>%
+select(-cat, -contains("score")) %>%
+pivot_longer(cols = 2:3, names_to = "covariate", values_to = "pval") %>%
+tidyr::separate(covariate, into = c("remove", "covariate")) %>%
+select(-remove, -time) %>%
+mutate(covariate = paste0("group", covariate))
+hmp_results <- left_join(hmp_coefs, score_results, by = c("category_num", "covariate")) %>%
+left_join(pval_results, by = c("category_num", "covariate"))
+saveRDS(hmp_results, "hmp_results.rds")
+# combine results from hdw and hmp studies
+combined_results <- hdw_results %>%
+mutate(covariate = ifelse(covariate == "dairydairy", "groupdairy", "age")) %>%
+full_join(hmp_results, by = c("covariate", "category"))
+saveRDS(combined_results, file = "combined_results.rds")
+debugonce(radEmu:::score_test)
+score_start <- proc.time()
+robust_score <- emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+fitted_model = hdw_fit,
+refit = FALSE,
+test_kj = data.frame(k = covariate_to_test,
+j = 148),
+Y = as.matrix(hdw_otus_rademu),
+rho_init = 1,
+tau = 5,
+constraint_tol = 1e-3,
+verbose = TRUE)
+score_end <- proc.time() - score_start
+debugonce(radEmu:::get_score_stat)
+score_start <- proc.time()
+robust_score <- emuFit(formula = ~ dairy + age,
+data = hdw_meta_rademu,
+fitted_model = hdw_fit,
+refit = FALSE,
+test_kj = data.frame(k = covariate_to_test,
+j = 148),
+Y = as.matrix(hdw_otus_rademu),
+rho_init = 1,
+tau = 5,
+constraint_tol = 1e-3,
+verbose = TRUE)
+score_end <- proc.time() - score_start
+update_z(Y = Y, X = X, B = B)
+constraint_grad_fn(B[k_constr, ])
+I <- f_info(Y, B_cup, B, X, X_cup)
+Matrix::solve(I, H_cup, method = "cholmod_solve")
+solve(I)
+I[1:3,1:3]
+est_start <- proc.time()
+hmp_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu,
+run_score_tests = FALSE)
+est_start <- proc.time()
+hmp_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu,
+run_score_tests = FALSE, verbose = TRUE)
+est_start <- proc.time()
+hmp_fit <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu,
+run_score_tests = FALSE, verbose = TRUE, compute_cis = FALSE)
+# run larger dataset with constraint only over hdw taxa
+# replace category names
+hdw_wide_counts <- readRDS("hdw_wide_counts_metaphlan3.RDS")
+hdw_wide_counts[is.na(hdw_wide_counts)] <- 0
+hdw_format_species <- read_csv("hdw_format_species.csv")
+hdw_new_counts <- hdw_wide_counts %>%
+pivot_longer(cols =`C02-S104`: `D03-S37`,
+names_to = "sample", values_to = "abundance_counts") %>%
+mutate(group = ifelse(sample %in% c("C02-S104","C02-S106","C02-S111","C02-S112","C02-S113","C02-S115"),"community","dairy")) %>%
+separate(clade_name, c("Leftover","Species"), sep = "s__", extra = "merge") %>%
+select(-Leftover) %>%
+full_join(hdw_format_species, by = "Species") %>%
+select(-Species, -group) %>%
+pivot_wider(names_from = species, values_from = abundance_counts)
+rownames(hdw_new_counts) <- hdw_new_counts$sample
+hdw_new_counts <- hdw_new_counts %>% select(-sample)
+hmp_in_hdw <- which(colnames(hmp_otus_rademu) %in% colnames(hdw_new_counts))
+est_start <- proc.time()
+hmp_fit_sm <- radEmu::emuFit(formula = ~ group + age,
+data = hmp_meta_rademu,
+Y = hmp_otus_rademu[, 1:272],
+run_score_tests = FALSE, verbose = TRUE)
+est_end <- proc.time() - est_start
+est_end
+115/2
+cor(hmp_fit_sm$coef$estimate[1:272], hmp_fit$coef$estimate[1:272])
+saveRDS(hmp_fit_sm, "hmp_fit_sm.RDS")
+# hmp results
+hmp_ests <- readRDS("hmp_fit_sm.RDS")
+hmp_coefs <- hmp_ests$coef[, 1:7]
+# read in score test results
+files <- list.files("results_bigger", full.names = T)
+results <- vector(length(files), mode = "list")
+counter <- 1
+for (file in files) {
+res_so_far <- readRDS(file)
+get_datas <- file %>% strsplit("_") %>% extract2(1)  %>% strsplit(".rds")
+res_so_far$cat <- parse_number((file %>% strsplit("/") %>% extract2(1)  %>% strsplit(".rds"))[[2]][1])
+results[[counter]] <- res_so_far
+counter <- counter + 1
+}
+score_results <- do.call(rbind, results) %>% as_tibble %>%
+mutate(category_num = cat) %>%
+select(-cat, -contains("pval")) %>%
+pivot_longer(cols = 2:3, names_to = "covariate", values_to = "score") %>%
+tidyr::separate(covariate, into = c("remove", "covariate")) %>%
+select(-remove) %>%
+mutate(covariate = paste0("group", covariate))
+pval_results <- do.call(rbind, results) %>% as_tibble %>%
+mutate(category_num = cat) %>%
+select(-cat, -contains("score")) %>%
+pivot_longer(cols = 2:3, names_to = "covariate", values_to = "pval") %>%
+tidyr::separate(covariate, into = c("remove", "covariate")) %>%
+select(-remove, -time) %>%
+mutate(covariate = paste0("group", covariate))
+hmp_results <- left_join(hmp_coefs, score_results, by = c("category_num", "covariate")) %>%
+left_join(pval_results, by = c("category_num", "covariate"))
+head(hmp_results)
+summary(hmp_results$time)
+299145/3600
+2331/30
+saveRDS(hmp_results, "hmp_results.rds")
+# combine results from hdw and hmp studies
+combined_results <- hdw_results %>%
+mutate(covariate = ifelse(covariate == "dairydairy", "groupdairy", "age")) %>%
+full_join(hmp_results, by = c("covariate", "category"))
+saveRDS(combined_results, file = "combined_results.rds")
+ggplot(combined_results, aes(x = pval.x, y = pval.y)) +
+geom_point()
+ggplot(combined_results, aes(x = estimate.x, y = estimate.y)) +
+geom_point()
+combined_results <- readRDS("combined_results.rds")
+head(combined_results)
+combined_results %>%
+filter(covariate == "groupdairy") %>%
+ggplot(aes(x = estimate.x, y = estimate.y)) +
+geom_point()
+combined_results %>%
+filter(covariate == "groupdairy") %>%
+ggplot(aes(x = estimate.x, y = estimate.y)) +
+geom_point() +
+labs(x = "HDW estimate",
+y = "HMP estimate")
+combined_results %>%
+filter(covariate == "groupdairy") %>%
+ggplot(aes(x = estimate.x, y = estimate.y)) +
+geom_point() +
+labs(x = "HDW estimate of dairy vs control",
+y = "HMP estimate of dairy vs control")
+cor(combined_results %>% filter(covariate == "groupdairy") %>%
+select(estimate.x, estimate.y))
